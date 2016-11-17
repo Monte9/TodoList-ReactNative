@@ -6,10 +6,7 @@ import Item from './Item'
 
 const styles = StyleSheet.create({
   listView: {
-    position: 'absolute',
-    top: 50,
-    left: 0,
-    flexDirection: 'row',
+    flex: 1,
   },
 })
 
@@ -18,6 +15,18 @@ export default class List extends Component {
     return(
       <ScrollView style={styles.listView}>
         <Input/>
+        <Item item="Todo Item 1" checked={true}/>
+        <Item item="Todo Item 2" checked={true}/>
+        <Item item="Todo Item 3" checked={false}/>
+        <Item item="Todo Item 4" checked={false}/>
+        <Item item="Todo Item 5" checked={true}/>
+        <Item item="Todo Item 6" checked={false}/>
+        <Item item="Todo Item 1" checked={true}/>
+        <Item item="Todo Item 2" checked={true}/>
+        <Item item="Todo Item 3" checked={false}/>
+        <Item item="Todo Item 4" checked={false}/>
+        <Item item="Todo Item 5" checked={true}/>
+        <Item item="Todo Item 6" checked={false}/>
         <Item item="Todo Item 1" checked={true}/>
         <Item item="Todo Item 2" checked={true}/>
         <Item item="Todo Item 3" checked={false}/>

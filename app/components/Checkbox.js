@@ -18,7 +18,6 @@ export default class Checkbox extends Component {
   }
 
   displayCheckbox() {
-    console.log(this.props)
     if(this.props.checked) {
       return (
         <Image

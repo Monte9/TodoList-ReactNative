@@ -3,12 +3,10 @@ import { TouchableOpacity, View, Text, StyleSheet, Dimensions } from 'react-nati
 
 const styles = StyleSheet.create({
   footerBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
     width: Dimensions.get('window').width,
     height: 50,
     borderWidth: 1,
+    backgroundColor: 'white'
   },
   detailText: {
     alignSelf: 'center',

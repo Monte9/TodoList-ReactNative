@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   inputField: {
     width: Dimensions.get('window').width,
     height: 50,
-    borderWidth: 1,
     borderColor: 'gray',
     padding: 10,
     color: 'lightgray',

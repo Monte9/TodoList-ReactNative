@@ -3,9 +3,6 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
   headerBar: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
     width: Dimensions.get('window').width,
     height: 50,
     backgroundColor: 'rgba(119,195,229,1)',
