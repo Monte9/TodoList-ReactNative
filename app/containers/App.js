@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
 import { actionCreators } from '../redux/todoRedux'
+import Title from '../components/Title'
+import Footer from '../components/Footer'
+import List from '../components/List'
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +28,9 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-
+        <Title/>
+        <List/>
+        <Footer/>
       </View>
     )
   }
