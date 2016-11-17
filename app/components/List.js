@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 
-import Input from './Input'
 import Item from './Item'
 
 const styles = StyleSheet.create({
@@ -11,28 +10,24 @@ const styles = StyleSheet.create({
 })
 
 export default class List extends Component {
+  displayItems() {
+    const { items, onCheckItem, onDeleteItem } = this.props
+
+    return (
+      items.map((item, index) => {
+        return (
+          <Item key={item.label} item={item.label} checked={item.completed} onDeleteItem={onDeleteItem.bind(this, index)} onCheckItem={onCheckItem.bind(this, index)}/>
+        )
+      })
+    )
+  }
+
   render() {
+    const { items } = this.props
+
     return(
       <ScrollView style={styles.listView}>
-        <Input/>
-        <Item item="Todo Item 1" checked={true}/>
-        <Item item="Todo Item 2" checked={true}/>
-        <Item item="Todo Item 3" checked={false}/>
-        <Item item="Todo Item 4" checked={false}/>
-        <Item item="Todo Item 5" checked={true}/>
-        <Item item="Todo Item 6" checked={false}/>
-        <Item item="Todo Item 1" checked={true}/>
-        <Item item="Todo Item 2" checked={true}/>
-        <Item item="Todo Item 3" checked={false}/>
-        <Item item="Todo Item 4" checked={false}/>
-        <Item item="Todo Item 5" checked={true}/>
-        <Item item="Todo Item 6" checked={false}/>
-        <Item item="Todo Item 1" checked={true}/>
-        <Item item="Todo Item 2" checked={true}/>
-        <Item item="Todo Item 3" checked={false}/>
-        <Item item="Todo Item 4" checked={false}/>
-        <Item item="Todo Item 5" checked={true}/>
-        <Item item="Todo Item 6" checked={false}/>
+        {this.displayItems()}
       </ScrollView>
     )
   }

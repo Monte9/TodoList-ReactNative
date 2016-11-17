@@ -13,10 +13,6 @@ const styles = StyleSheet.create({
 })
 
 export default class Checkbox extends Component {
-  checkItem() {
-    console.log("checked")
-  }
-
   displayCheckbox() {
     if(this.props.checked) {
       return (
@@ -34,8 +30,10 @@ export default class Checkbox extends Component {
   }
 
   render() {
+    const { onCheckItem } = this.props
+
     return (
-      <TouchableOpacity style={styles.checkbox} onPress={this.checkItem.bind(this)}>
+      <TouchableOpacity style={styles.checkbox} onPress={onCheckItem} activeOpacity={1}>
         {this.displayCheckbox()}
       </TouchableOpacity>
     )

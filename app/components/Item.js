@@ -32,16 +32,12 @@ const styles = StyleSheet.create({
 })
 
 export default class Item extends Component {
-  deleteItem() {
-    console.log("Delete item")
-  }
-
   render() {
     return(
       <View style={styles.itemView}>
         <Text style={styles.item}>{this.props.item}</Text>
-        <Checkbox style={styles.checkbox} checked={this.props.checked}/>
-        <TouchableOpacity style={styles.delete} onPress={this.deleteItem.bind(this)}>
+        <Checkbox style={styles.checkbox} checked={this.props.checked} onCheckItem={this.props.onCheckItem}/>
+        <TouchableOpacity style={styles.delete} onPress={this.props.onDeleteItem}>
           <Image
             style={styles.deleteImage}
             source={require('../img/delete.png')}/>

@@ -7,6 +7,7 @@ import { actionCreators } from '../redux/todoRedux'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
 import List from '../components/List'
+import Input from '../components/Input'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,17 +20,47 @@ const mapStateToProps = (state) => ({
 })
 
 class App extends Component {
-
   static propTypes = {
     items: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
   }
 
+  onAddItem = (text) => {
+    const { dispatch } = this.props
+    dispatch(actionCreators.addItem(text))
+  }
+
+  onCheckItem = (index) => {
+    const {dispatch} = this.props
+
+    console.log("checking item")
+    console.log(index)
+
+    dispatch(actionCreators.checkItem(index))
+  }
+
+  onDeleteItem = (index) => {
+    const {dispatch} = this.props
+
+    console.log("deleting item")
+    console.log(index)
+
+    dispatch(actionCreators.removeItem(index))
+  }
+
   render() {
+    const { items } = this.props
+
     return (
       <View style={styles.container}>
         <Title/>
-        <List/>
+        <Input
+          placeholder="Enter a new item!"
+          onSubmitEditing={this.onAddItem}/>
+        <List
+          items={items}
+          onCheckItem={this.onCheckItem}
+          onDeleteItem={this.onDeleteItem}/>
         <Footer/>
       </View>
     )
