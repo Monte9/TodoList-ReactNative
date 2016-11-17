@@ -17,12 +17,27 @@ export default class Checkbox extends Component {
     console.log("checked")
   }
 
-  render() {
-    return (
-      <TouchableOpacity style={styles.checkbox} onPress={this.checkItem.bind(this)}>
+  displayCheckbox() {
+    console.log(this.props)
+    if(this.props.checked) {
+      return (
         <Image
           style={styles.checkboxImage}
           source={require('../img/checked.png')}/>
+      )
+    } else {
+      return (
+        <Image
+          style={styles.checkboxImage}
+          source={require('../img/unchecked.png')}/>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <TouchableOpacity style={styles.checkbox} onPress={this.checkItem.bind(this)}>
+        {this.displayCheckbox()}
       </TouchableOpacity>
     )
   }

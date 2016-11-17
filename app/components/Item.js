@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   deleteImage: {
-    height: 18,
-    width: 18,
+    height: 15,
+    width: 15,
   }
 })
 
@@ -40,7 +40,7 @@ export default class Item extends Component {
     return(
       <View style={styles.itemView}>
         <Text style={styles.item}>{this.props.item}</Text>
-        <Checkbox style={styles.checkbox}/>
+        <Checkbox style={styles.checkbox} checked={this.props.checked}/>
         <TouchableOpacity style={styles.delete} onPress={this.deleteItem.bind(this)}>
           <Image
             style={styles.deleteImage}
