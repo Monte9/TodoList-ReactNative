@@ -27,6 +27,7 @@ Open to suggestions and feedback. Please email mthakkar@mail.sfsu.edu
 ## Resources
 
 - http://www.reactnativeexpress.com/
+- https://github.com/gabergg/ReactNativeTodoList
 
 ## License
 
