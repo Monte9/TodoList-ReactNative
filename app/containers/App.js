@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
 import { actionCreators } from '../redux/todoRedux'
-import Title from '../components/Title'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import List from '../components/List'
 import Input from '../components/Input'
@@ -31,21 +31,18 @@ class App extends Component {
   }
 
   onCheckItem = (index) => {
-    const {dispatch} = this.props
-
-    console.log("checking item")
-    console.log(index)
-
+    const { dispatch } = this.props
     dispatch(actionCreators.checkItem(index))
   }
 
   onDeleteItem = (index) => {
-    const {dispatch} = this.props
-
-    console.log("deleting item")
-    console.log(index)
-
+    const { dispatch } = this.props
     dispatch(actionCreators.removeItem(index))
+  }
+
+  onRemoveItems = () => {
+    const { dispatch } = this.props
+    dispatch(actionCreators.removeAllItems())
   }
 
   render() {
@@ -53,7 +50,7 @@ class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Title/>
+        <Header title="Todo List"/>
         <Input
           placeholder="Enter a new item!"
           onSubmitEditing={this.onAddItem}/>
@@ -61,7 +58,7 @@ class App extends Component {
           items={items}
           onCheckItem={this.onCheckItem}
           onDeleteItem={this.onDeleteItem}/>
-        <Footer/>
+        <Footer title="Remove completed items" onRemoveItems={this.onRemoveItems}/>
       </View>
     )
   }

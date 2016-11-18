@@ -1,7 +1,8 @@
 const types = {
   ADD_ITEM: 'ADD_ITEM',
   CHECK_ITEM: 'CHECK_ITEM',
-  REMOVE_ITEM: 'REMOVE_ITEM'
+  REMOVE_ITEM: 'REMOVE_ITEM',
+  REMOVE_ALL_ITEMS: 'REMOVE_ALL_ITEMS'
 }
 
 export const actionCreators = {
@@ -21,6 +22,11 @@ export const actionCreators = {
     return {
       type: types.REMOVE_ITEM,
       payload: index
+    }
+  },
+  removeAllItems: () => {
+    return {
+      type: types.REMOVE_ALL_ITEMS,
     }
   },
 }
@@ -57,10 +63,15 @@ export const reducer = (state = initialState, action) => {
       }
     }
     case types.REMOVE_ITEM: {
-      console.log("yoooo")
       return {
         ...state,
         items: items.filter((item, i) => i !== payload),
+      }
+    }
+    case types.REMOVE_ALL_ITEMS: {
+      return {
+        ...state,
+        items: items.filter((item) => !item.completed)
       }
     }
     default: {

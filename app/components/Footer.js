@@ -19,14 +19,11 @@ const styles = StyleSheet.create({
 })
 
 export default class Footer extends Component {
-  removeItems() {
-    console.log("Remove items here")
-  }
-
   render() {
+    const { title, onRemoveItems } = this.props
     return (
-      <TouchableOpacity style={styles.footerBar} onPress={this.removeItems.bind(this)}>
-        <Text style={styles.detailText}>Remove completed items</Text>
+      <TouchableOpacity style={styles.footerBar} onPress={onRemoveItems} activeOpacity={1}>
+        <Text style={styles.detailText}>{this.props.title}</Text>
       </TouchableOpacity>
     )
   }
